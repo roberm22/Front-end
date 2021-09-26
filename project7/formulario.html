@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <script>
+        $.validator.setDefaults({
+            submitHandler: function() {
+                alert("¡CV enviado!");
+            }
+        });
+
+        $().ready(function() {
+            // validate the comment form when it is submitted
+            $("#commentForm").validate();
+        });
+    </script>
+
+
+</head>
+<body>
+
+<div id="main">
+
+    <h1>Formulario</h1>
+
+    <form class="cmxform" id="commentForm" method="get">
+
+        <fieldset>
+
+            <legend>Datos personales</legend>
+
+            <p>
+                <label for="cname">Nombre (*)</label>
+                <input id="cname" name="name" minlength="3" maxlength="20" type="text" required placeholder="Introduzca su nombre">
+            </p>
+
+            <p>
+                <label for="lastname">Apellidos (*)</label>
+                <input id="lastname" name="lastname" type="text" required placeholder="Introduzca sus apellidos">
+            </p>
+
+            <p>
+                <label for="phone">Telefono </label>
+                <input id="phone" name="lastname" type="tel" pattern="[0-9]{9}" placeholder="Introduzca su telefono">
+            </p>
+
+            <p>
+                <label for="cemail">Correo electrónico (*)</label>
+                <input id="cemail" type="email" name="email" required placeholder="Introduzca email">
+            </p>
+
+            <fieldset>
+                <legend>Selecciona Género</legend>
+                <p>
+                    <label for="hombre">Hombre</label>
+                    <input id="hombre" name="gender" type="radio" >
+                    <label for="mujer">Mujer</label>
+                    <input id="mujer" name="gender" type="radio">
+                </p>
+            </fieldset>
+
+            <p>
+                <label for="color">Color</label>
+                <input id="color" name="color" type="color">
+            </p>
+
+            <p>
+                <label for="ccomment">Resumen del CV (*)</label><br>
+                <textarea id="ccomment" rows="4" cols="50" name="comment" required placeholder="Breve resumen del CV"></textarea>
+            </p>
+
+            <p>
+                <label for="file">Ficheros adjuntos con el CV </label>
+                <input id="file" type="file" name="file" multiple>
+            </p>
+
+            <fieldset>
+                <legend>Dirección</legend>
+
+                <p>
+                    <label for="calle">Calle</label>
+                    <input id="calle" name="calle" minlength="2" maxlength="10" type="text" placeholder="Calle">
+                </p>
+
+                <p>
+                    <label for="number">Número</label>
+                    <input id="number" name="number" type="number" placeholder="Número" min="0" max="1000">
+                </p>
+
+                <p>
+                    <label for="postal">Código Postal</label>
+                    <input id="postal" name="postal" type="range" min="10000" max="70000">
+                </p>
+
+                <p>
+                    <label for="provincia">Provincia</label>
+                    <select id="provincia" name="provincia">
+                        <option value="madrid">Madrid</option>
+                        <option value="leon">León</option>
+                        <option value="alicante">Alicante</option>
+                        <option value="malaga">Málaga</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="pais">Pais</label>
+                    <input list="pais" name="pais" placeholder="Teclea el país">
+                    <datalist id="pais">
+                        <option value="España">
+                        <option value="Italia">
+                        <option value="Francia">
+                    </datalist>
+                </p>
+
+
+            </fieldset>
+
+            <p>
+                Interesado en puestos
+                <input type="checkbox" id="completo" name="competo" value="Bike">
+                <label for="completo"> Tiempo completo</label>
+                <input type="checkbox" id="parcial" name="parcial" value="Car">
+                <label for="parcial"> Tiempo parcial</label>
+            </p>
+
+            <p>
+                <input class="submit" type="submit" value="Enviar">
+                <input class="reset" type="reset" value="Restablecer">
+            </p>
+
+
+        </fieldset>
+
+    </form>
+
+</div>
+
+</body>
+</html>
